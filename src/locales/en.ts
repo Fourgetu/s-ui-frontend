@@ -243,6 +243,7 @@ export default {
   },
   menu: {
     logout: "Logout",
+    site: "Official site",
   },
   admin: {
     changeCred: "Change credentials",

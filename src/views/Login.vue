@@ -42,6 +42,10 @@
                   </v-menu>
                 </template>
               </v-select>
+              <div class="text-center mt-3">
+                <a href="https://3yuedaohang.com" target="_blank" rel="noopener noreferrer"
+                  class="text-caption text-decoration-none">🌐 {{ $t('menu.site') }} · 3yuedaohang.com</a>
+              </div>
             </v-card-text>
           </v-card>
         </v-col>

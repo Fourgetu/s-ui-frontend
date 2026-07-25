@@ -32,6 +32,8 @@
       </v-list-item>
     </v-list>
     <template v-slot:append>
+      <v-list-item prepend-icon="mdi-web" :title="$t('menu.site')"
+        href="https://3yuedaohang.com" target="_blank" rel="noopener noreferrer"></v-list-item>
       <v-list-item prepend-icon="mdi-logout" :title="$t('menu.logout')" @click="Logout"></v-list-item>
     </template>
   </v-navigation-drawer>
