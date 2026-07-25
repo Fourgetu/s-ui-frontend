@@ -55,8 +55,11 @@ const Data = defineStore('Data', {
       this.loadData()
     },
     async loadData() {
+      // Resolve the registry FIRST (awaited): if the server we're "managing" was
+      // removed, loadServers() drops currentServer back to local, so the api/load
+      // below isn't proxied to a gone remote and 404'd on every poll tick.
+      await this.loadServers()
       setRemoteServer(this.currentServer)
-      this.loadServers()
       const msg = await HttpUtils.get('api/load', this.lastLoad >0 ? {lu: this.lastLoad} : {} )
       if(msg.success) {
         this.onlines = msg.obj.onlines
@@ -67,10 +70,15 @@ const Data = defineStore('Data', {
             message: msg.obj.lastLog
           })
         }
-        
+
         if (msg.obj.config) {
           this.setNewData(msg.obj)
         }
+      } else if (this.currentServer && !/cancel/i.test(msg.msg)) {
+        // The remote we're managing is unreachable/gone (a real error, not a
+        // duplicate-request cancel). Stop the interval from looping 404s forever
+        // and fall back to the local panel.
+        this.setCurrentServer('')
       }
     },
     setNewData(data: any) {

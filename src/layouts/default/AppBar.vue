@@ -3,7 +3,7 @@
     <v-icon v-if="isMobile" icon="mdi-menu" @click="$emit('toggleDrawer')" />
     <span v-else style="width: 24px"></span>
     <v-app-bar-title :text="$t(<string>route.name)" class="align-center text-center " />
-    <v-menu v-if="servers.length > 0">
+    <v-menu v-if="servers.length > 0 || currentServer">
       <template v-slot:activator="{ props }">
         <v-btn v-bind="props" variant="tonal" size="small" class="me-1"
           :color="currentServer ? 'warning' : 'primary'"
