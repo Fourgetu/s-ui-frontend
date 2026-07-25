@@ -244,6 +244,7 @@ export default {
   menu: {
     logout: "Logout",
     site: "Official site",
+    youtube: "YouTube",
   },
   admin: {
     changeCred: "Change credentials",

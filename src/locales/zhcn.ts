@@ -244,6 +244,7 @@ export default {
   menu: {
     logout: "退出登录",
     site: "官网 / 导航站",
+    youtube: "YouTube 频道",
   },
   admin: {
     changeCred: "更改凭据",
