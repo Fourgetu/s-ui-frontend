@@ -67,13 +67,19 @@ html[data-skin='mint'] .v-application {
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }
-.v-theme--dark .v-navigation-drawer,
+/* App bar sits at the top edge and never covers content, so it can stay a light
+   frost. */
 .v-theme--dark .v-app-bar.v-toolbar {
   background: rgba(255, 255, 255, 0.06) !important;
 }
-.v-theme--light .v-navigation-drawer,
 .v-theme--light .v-app-bar.v-toolbar {
   background: rgba(255, 255, 255, 0.40) !important;
+}
+/* The rail drawer expands on hover as a flyover ON TOP of the content, so a
+   see-through drawer bleeds the cards underneath (menu/content overlap). Paint
+   it with the skin's own surface colour, near-opaque, so the flyout is clean. */
+.v-navigation-drawer {
+  background: rgba(var(--v-theme-surface), 0.92) !important;
 }
 
 /* ---- frosted content cards ----
