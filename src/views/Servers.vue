@@ -143,6 +143,9 @@ const delServer = async (item: any, index: number) => {
   }
   const success = await Data().save('servers', 'del', item.id)
   if (success) {
+    // If we just removed the server we were managing, fall back to the local
+    // panel so subsequent api/load calls aren't proxied to a gone remote.
+    if (String(item.id) === Data().currentServer) Data().setCurrentServer('')
     delOverlay.value[index] = false
     wipeNodes.value[index] = false
   }
