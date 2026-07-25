@@ -16,8 +16,7 @@
   <v-row>
     <v-col cols="12" sm="6" md="4" lg="3" v-for="(item, index) in servers" :key="item.id">
       <v-card rounded="xl" elevation="5" min-width="200" :title="item.name"
-        :color="currentServer === String(item.id) ? 'primary' : undefined"
-        link @click="manage(item)">
+        :color="currentServer === String(item.id) ? 'primary' : undefined">
         <v-card-subtitle style="margin-top: -15px; overflow-wrap: anywhere;">{{ item.url }}</v-card-subtitle>
         <v-card-text>
           <div style="margin-bottom: 6px;">
