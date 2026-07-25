@@ -245,6 +245,7 @@ export default {
     logout: "退出登录",
     site: "官网 / 导航站",
     youtube: "YouTube 频道",
+    vps: "机器推荐",
   },
   admin: {
     changeCred: "更改凭据",

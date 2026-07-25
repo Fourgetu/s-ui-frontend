@@ -48,6 +48,9 @@
                 <br>
                 <a href="https://www.youtube.com/@zhanzhang3yue" target="_blank" rel="noopener noreferrer"
                   class="text-caption text-decoration-none">📺 {{ $t('menu.youtube') }} · @zhanzhang3yue</a>
+                <br>
+                <a href="https://3yuedaohang.com/cn2/banwagong" target="_blank" rel="noopener noreferrer"
+                  class="text-caption text-decoration-none">🖥️ {{ $t('menu.vps') }}</a>
               </div>
             </v-card-text>
           </v-card>
