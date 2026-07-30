@@ -23,6 +23,17 @@
         </v-list-item>
       </v-list>
     </v-menu>
+    <v-btn
+      icon
+      variant="text"
+      href="https://donate.alireza0.dev"
+      target="_blank"
+      rel="noopener"
+      class="donate-btn"
+      v-tooltip="$t('donate')"
+    >
+      <v-icon icon="mdi-heart" color="red" size="1.5em" />
+    </v-btn>
     <v-menu>
       <template v-slot:activator="{ props }">
         <v-btn icon v-bind="props">

@@ -1,8 +1,10 @@
 <template>
   <v-dialog transition="dialog-bottom-transition" width="800">
     <v-card class="rounded-lg">
-      <v-card-title>
+      <v-card-title class="d-flex align-center">
         {{ $t('actions.' + title) + " " + $t('objects.tls') }}
+        <v-spacer></v-spacer>
+        <DocLink section="tls" />
       </v-card-title>
       <v-divider></v-divider>
       <v-card-text style="padding: 0 16px; overflow-y: scroll;">
@@ -287,7 +289,7 @@
             </v-menu>
           </v-card-actions>
         </v-card>
-        <AcmeVue :tls="inTls" />
+        <AcmeVue :tls="inTls" v-if="!isWindows" />
         <EchVue :iTls="inTls" :oTls="outTls" />
       </v-card-text>
       <v-card-actions>
@@ -315,11 +317,13 @@
 <script lang="ts">
 import { tls, iTls, defaultInTls, oTls, defaultOutTls } from '@/types/tls'
 import AcmeVue from '@/components/tls/Acme.vue'
+import DocLink from '@/components/DocLink.vue'
 import EchVue from '@/components/tls/Ech.vue'
 import HttpUtils from '@/plugins/httputil'
 import { push } from 'notivue'
 import { i18n } from '@/locales'
 import RandomUtil from '@/plugins/randomUtil'
+import Data from '@/store/modules/data'
 export default {
   props: ['visible', 'data', 'id'],
   emits: ['close', 'save'],
@@ -485,6 +489,9 @@ export default {
     }
   },
   computed: {
+    isWindows(): boolean {
+      return Data().os === 'windows'
+    },
     inTls(): iTls {
       return this.tls.server
     },
@@ -587,6 +594,6 @@ export default {
       }
     },
   },
-  components: { AcmeVue, EchVue }
+  components: { DocLink, AcmeVue, EchVue }
 }
 </script>

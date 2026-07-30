@@ -62,15 +62,15 @@
 
 <script lang="ts" setup>
 import { ref } from "vue"
-import { useLocale,useTheme } from 'vuetify'
+import { useLocale, useTheme } from 'vuetify'
 import { i18n, languages } from '@/locales'
 import { useRouter } from 'vue-router'
 import HttpUtil from '@/plugins/httputil'
 import { SKINS, savedSkin, applySkinAttr, type SkinId } from '@/plugins/skins'
 
 
-const theme = useTheme()
 const locale = useLocale()
+const theme = useTheme()
 
 // Same gradient-skin picker as the in-panel app bar, so the login screen shows
 // the chosen skin (default Aurora) and stays in sync with the rest of the UI.
