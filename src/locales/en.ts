@@ -247,9 +247,6 @@ export default {
   },
   menu: {
     logout: "Logout",
-    site: "Official site",
-    youtube: "YouTube",
-    vps: "VPS picks",
   },
   admin: {
     changeCred: "Change credentials",
